@@ -118,11 +118,7 @@ public sealed class SideScrollerSceneBootstrap : MonoBehaviour
         body.useGravity = true;
         body.interpolation = RigidbodyInterpolation.Interpolate;
         body.collisionDetectionMode = CollisionDetectionMode.Continuous;
-        body.constraints = RigidbodyConstraints.FreezePositionZ | RigidbodyConstraints.FreezeRotation;
-
-        Vector3 position = playerObject.transform.position;
-        position.z = 0f;
-        playerObject.transform.position = position;
+        body.constraints = RigidbodyConstraints.FreezeRotation;
 
         SideScrollerPlayerController controller = playerObject.GetComponent<SideScrollerPlayerController>();
         if (controller == null)

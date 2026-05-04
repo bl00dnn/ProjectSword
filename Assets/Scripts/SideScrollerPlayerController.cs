@@ -9,21 +9,25 @@ public sealed class SideScrollerPlayerController : MonoBehaviour
 {
     [Header("Movement")]
     [SerializeField] private float moveSpeed = 6f;
+    [SerializeField] private float sprintMultiplier = 1.6f;
     [SerializeField] private float jumpVelocity = 8f;
     [SerializeField] private float acceleration = 40f;
     [SerializeField] private float airAcceleration = 28f;
     [SerializeField] private float groundCheckDistance = 0.18f;
     [SerializeField] private LayerMask groundMask = ~0;
 
-    [Header("2.5D Plane")]
-    [SerializeField] private float lockedZ = 0f;
+    [Header("3D Movement")]
     [SerializeField] private bool faceMoveDirection = true;
+    [SerializeField] private float turnSpeed = 16f;
 
     private Rigidbody body;
     private Collider bodyCollider;
     private PhysicsMaterial frictionlessMaterial;
-    private float moveInput;
+    private Vector2 moveInput;
+    private Vector3 moveDirection;
+    private bool sprintHeld;
     private bool jumpQueued;
+    private const string AcidHazardName = "Acid";
 
     private void Awake()
     {
@@ -33,38 +37,37 @@ public sealed class SideScrollerPlayerController : MonoBehaviour
         body.useGravity = true;
         body.interpolation = RigidbodyInterpolation.Interpolate;
         body.collisionDetectionMode = CollisionDetectionMode.Continuous;
-        body.constraints = RigidbodyConstraints.FreezePositionZ | RigidbodyConstraints.FreezeRotation;
+        body.constraints = RigidbodyConstraints.FreezeRotation;
         bodyCollider.material = GetFrictionlessMaterial();
-
-        lockedZ = transform.position.z;
-        SnapToMovementPlane();
     }
 
     private void Update()
     {
-        moveInput = ReadHorizontalInput();
+        moveInput = ReadMoveInput();
+        sprintHeld = IsSprintHeld();
 
         if (WasJumpPressed())
         {
             jumpQueued = true;
         }
 
-        if (faceMoveDirection && Mathf.Abs(moveInput) > 0.01f)
+        moveDirection = GetCameraRelativeMoveDirection(moveInput);
+        if (faceMoveDirection && moveDirection.sqrMagnitude > 0.0001f)
         {
-            transform.rotation = Quaternion.Euler(0f, moveInput > 0f ? 90f : -90f, 0f);
+            Quaternion targetRotation = Quaternion.LookRotation(moveDirection.normalized, Vector3.up);
+            transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, turnSpeed * Time.deltaTime);
         }
     }
 
     private void FixedUpdate()
     {
-        SnapToMovementPlane();
-
         Vector3 velocity = body.linearVelocity;
         bool grounded = IsGrounded();
         float currentAcceleration = grounded ? acceleration : airAcceleration;
-        float targetX = moveInput * moveSpeed;
-        velocity.x = Mathf.MoveTowards(velocity.x, targetX, currentAcceleration * Time.fixedDeltaTime);
-        velocity.z = 0f;
+        float currentMoveSpeed = sprintHeld ? moveSpeed * sprintMultiplier : moveSpeed;
+        Vector3 targetVelocity = moveDirection * currentMoveSpeed;
+        velocity.x = Mathf.MoveTowards(velocity.x, targetVelocity.x, currentAcceleration * Time.fixedDeltaTime);
+        velocity.z = Mathf.MoveTowards(velocity.z, targetVelocity.z, currentAcceleration * Time.fixedDeltaTime);
 
         if (jumpQueued && grounded)
         {
@@ -75,9 +78,39 @@ public sealed class SideScrollerPlayerController : MonoBehaviour
         body.linearVelocity = velocity;
     }
 
-    private float ReadHorizontalInput()
+    private void OnCollisionEnter(Collision collision)
     {
-        float value = 0f;
+        if (IsAcidHazard(collision.gameObject))
+        {
+            Respawn();
+        }
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (IsAcidHazard(other.gameObject))
+        {
+            Respawn();
+        }
+    }
+
+    public void Respawn()
+    {
+        PlayerSpawnPoint spawnPoint = FindAnyObjectByType<PlayerSpawnPoint>();
+        Vector3 spawnPosition = spawnPoint != null ? spawnPoint.SpawnPosition : transform.position;
+
+        jumpQueued = false;
+        moveInput = Vector2.zero;
+
+        body.position = spawnPosition;
+        body.linearVelocity = Vector3.zero;
+        body.angularVelocity = Vector3.zero;
+        transform.position = spawnPosition;
+    }
+
+    private Vector2 ReadMoveInput()
+    {
+        Vector2 value = Vector2.zero;
 
 #if ENABLE_INPUT_SYSTEM
         Keyboard keyboard = Keyboard.current;
@@ -85,12 +118,22 @@ public sealed class SideScrollerPlayerController : MonoBehaviour
         {
             if (keyboard.aKey.isPressed)
             {
-                value -= 1f;
+                value.x -= 1f;
             }
 
             if (keyboard.dKey.isPressed)
             {
-                value += 1f;
+                value.x += 1f;
+            }
+
+            if (keyboard.sKey.isPressed)
+            {
+                value.y -= 1f;
+            }
+
+            if (keyboard.wKey.isPressed)
+            {
+                value.y += 1f;
             }
         }
 #endif
@@ -98,30 +141,80 @@ public sealed class SideScrollerPlayerController : MonoBehaviour
 #if ENABLE_LEGACY_INPUT_MANAGER
         if (Input.GetKey(KeyCode.A))
         {
-            value -= 1f;
+            value.x -= 1f;
         }
 
         if (Input.GetKey(KeyCode.D))
         {
-            value += 1f;
+            value.x += 1f;
+        }
+
+        if (Input.GetKey(KeyCode.S))
+        {
+            value.y -= 1f;
+        }
+
+        if (Input.GetKey(KeyCode.W))
+        {
+            value.y += 1f;
         }
 #endif
 
-        return Mathf.Clamp(value, -1f, 1f);
+        return Vector2.ClampMagnitude(value, 1f);
+    }
+
+    private Vector3 GetCameraRelativeMoveDirection(Vector2 input)
+    {
+        if (input.sqrMagnitude < 0.0001f)
+        {
+            return Vector3.zero;
+        }
+
+        Transform cameraTransform = Camera.main != null ? Camera.main.transform : null;
+        Vector3 forward = cameraTransform != null ? cameraTransform.forward : Vector3.forward;
+        Vector3 right = cameraTransform != null ? cameraTransform.right : Vector3.right;
+
+        forward.y = 0f;
+        right.y = 0f;
+        forward.Normalize();
+        right.Normalize();
+
+        Vector3 direction = right * input.x + forward * input.y;
+        return direction.sqrMagnitude > 1f ? direction.normalized : direction;
     }
 
     private bool WasJumpPressed()
     {
 #if ENABLE_INPUT_SYSTEM
         Keyboard keyboard = Keyboard.current;
-        if (keyboard != null && (keyboard.sKey.wasPressedThisFrame || keyboard.spaceKey.wasPressedThisFrame || keyboard.wKey.wasPressedThisFrame))
+        if (keyboard != null && keyboard.spaceKey.wasPressedThisFrame)
         {
             return true;
         }
 #endif
 
 #if ENABLE_LEGACY_INPUT_MANAGER
-        if (Input.GetKeyDown(KeyCode.S) || Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.W))
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            return true;
+        }
+#endif
+
+        return false;
+    }
+
+    private bool IsSprintHeld()
+    {
+#if ENABLE_INPUT_SYSTEM
+        Keyboard keyboard = Keyboard.current;
+        if (keyboard != null && (keyboard.leftShiftKey.isPressed || keyboard.rightShiftKey.isPressed))
+        {
+            return true;
+        }
+#endif
+
+#if ENABLE_LEGACY_INPUT_MANAGER
+        if (Input.GetKey(KeyCode.LeftShift) || Input.GetKey(KeyCode.RightShift))
         {
             return true;
         }
@@ -134,7 +227,7 @@ public sealed class SideScrollerPlayerController : MonoBehaviour
     {
         Bounds bounds = bodyCollider.bounds;
         float radius = Mathf.Max(0.05f, Mathf.Min(bounds.extents.x, bounds.extents.z) * 0.9f);
-        Vector3 origin = new Vector3(bounds.center.x, bounds.min.y + radius + 0.02f, lockedZ);
+        Vector3 origin = new Vector3(bounds.center.x, bounds.min.y + radius + 0.02f, bounds.center.z);
 
         return Physics.SphereCast(
             origin,
@@ -146,14 +239,20 @@ public sealed class SideScrollerPlayerController : MonoBehaviour
             QueryTriggerInteraction.Ignore);
     }
 
-    private void SnapToMovementPlane()
+    private static bool IsAcidHazard(GameObject candidate)
     {
-        Vector3 position = transform.position;
-        if (!Mathf.Approximately(position.z, lockedZ))
+        Transform current = candidate.transform;
+        while (current != null)
         {
-            position.z = lockedZ;
-            transform.position = position;
+            if (current.name.Contains(AcidHazardName))
+            {
+                return true;
+            }
+
+            current = current.parent;
         }
+
+        return false;
     }
 
     private PhysicsMaterial GetFrictionlessMaterial()

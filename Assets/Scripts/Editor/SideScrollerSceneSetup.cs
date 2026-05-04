@@ -4,7 +4,7 @@ using UnityEngine;
 
 public static class SideScrollerSceneSetup
 {
-    private const string FirstLevelScenePath = "Assets/Scenes/1stLevelScene.unity";
+    private const string FirstLevelScenePath = "Assets/Scenes/1st2ndLevelScene.unity";
 
     [MenuItem("ProjectSword/Setup 2.5D Side Scroller Scene")]
     public static void SetupScene()
@@ -17,7 +17,6 @@ public static class SideScrollerSceneSetup
     {
         GameObject player = GameObject.Find("Player") ?? GameObject.Find("Capsule");
         Vector3 spawnPosition = player != null ? player.transform.position : Vector3.zero;
-        spawnPosition.z = 0f;
 
         GameObject spawnObject = GameObject.Find("Player Spawn Point");
         if (spawnObject == null)
@@ -64,10 +63,6 @@ public static class SideScrollerSceneSetup
             player.name = "Player";
         }
 
-        Vector3 playerPosition = player.transform.position;
-        playerPosition.z = 0f;
-        player.transform.position = playerPosition;
-
         Rigidbody body = player.GetComponent<Rigidbody>();
         if (body == null)
         {
@@ -77,7 +72,7 @@ public static class SideScrollerSceneSetup
         body.useGravity = true;
         body.interpolation = RigidbodyInterpolation.Interpolate;
         body.collisionDetectionMode = CollisionDetectionMode.Continuous;
-        body.constraints = RigidbodyConstraints.FreezePositionZ | RigidbodyConstraints.FreezeRotation;
+        body.constraints = RigidbodyConstraints.FreezeRotation;
 
         if (player.GetComponent<SideScrollerPlayerController>() == null)
         {
@@ -100,8 +95,7 @@ public static class SideScrollerSceneSetup
 
         camera.orthographic = false;
         camera.fieldOfView = 45f;
-        camera.transform.position = new Vector3(player.transform.position.x, player.transform.position.y + 1.2f, player.transform.position.z - 18f);
-        camera.transform.rotation = Quaternion.identity;
+        camera.transform.position = player.transform.position + new Vector3(0f, 5f, -9f);
 
         SideScrollerCameraFollow follow = camera.GetComponent<SideScrollerCameraFollow>();
         if (follow == null)

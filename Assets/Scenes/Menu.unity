@@ -352,7 +352,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3ea1bc05c01140429e06507839c69b5f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  levelSceneName: 1stLevelScene
+  levelSceneName: 1st2ndLevelScene
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

@@ -8,16 +8,21 @@ using UnityEngine.InputSystem.UI;
 
 public sealed class MainMenu : MonoBehaviour
 {
-    [SerializeField] private string levelSceneName = "1stLevelScene";
+    [SerializeField] private string levelSceneName = "1st2ndLevelScene";
 
     private void Awake()
     {
+        Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true;
+
         EnsureEventSystem();
         CreatePlayButton();
     }
 
     public void Play()
     {
+        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
         SceneManager.LoadScene(levelSceneName);
     }
 

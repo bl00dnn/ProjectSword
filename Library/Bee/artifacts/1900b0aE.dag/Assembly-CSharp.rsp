@@ -465,9 +465,10 @@
 -analyzer:"C:/Program Files/Unity/Hub/Editor/6000.4.5f1/Editor/Data/Tools/BuildPipeline/Unity.SourceGenerators/Unity.UIToolkit.SourceGenerator.dll"
 "Assets/Scripts/MainMenu.cs"
 "Assets/Scripts/PlayerSpawnPoint.cs"
-"Assets/Scripts/SideScrollerCameraFollow.cs"
+"Assets/Scripts/PlayerVisualAnimator.cs"
 "Assets/Scripts/SideScrollerPlayerController.cs"
 "Assets/Scripts/SideScrollerSceneBootstrap.cs"
+"Assets/Scripts/WitcherShoulderCamera.cs"
 -langversion:9.0
 /deterministic
 /optimize+

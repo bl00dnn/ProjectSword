@@ -6,7 +6,7 @@ public static class SideScrollerSceneSetup
 {
     private const string FirstLevelScenePath = "Assets/Scenes/1st2ndLevelScene.unity";
 
-    [MenuItem("ProjectSword/Setup 2.5D Side Scroller Scene")]
+    [MenuItem("ProjectSword/Setup Witcher Style Third Person Scene")]
     public static void SetupScene()
     {
         SetupActiveScene();
@@ -72,7 +72,7 @@ public static class SideScrollerSceneSetup
         body.useGravity = true;
         body.interpolation = RigidbodyInterpolation.Interpolate;
         body.collisionDetectionMode = CollisionDetectionMode.Continuous;
-        body.constraints = RigidbodyConstraints.FreezeRotation;
+        body.constraints = RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationZ;
 
         if (player.GetComponent<SideScrollerPlayerController>() == null)
         {
@@ -93,14 +93,10 @@ public static class SideScrollerSceneSetup
             cameraObject.AddComponent<AudioListener>();
         }
 
-        camera.orthographic = false;
-        camera.fieldOfView = 45f;
-        camera.transform.position = player.transform.position + new Vector3(0f, 5f, -9f);
-
-        SideScrollerCameraFollow follow = camera.GetComponent<SideScrollerCameraFollow>();
+        WitcherShoulderCamera follow = camera.GetComponent<WitcherShoulderCamera>();
         if (follow == null)
         {
-            follow = camera.gameObject.AddComponent<SideScrollerCameraFollow>();
+            follow = camera.gameObject.AddComponent<WitcherShoulderCamera>();
         }
 
         follow.Target = player.transform;
@@ -108,7 +104,7 @@ public static class SideScrollerSceneSetup
 
         if (Object.FindAnyObjectByType<SideScrollerSceneBootstrap>() == null)
         {
-            new GameObject("2.5D Scene Bootstrap").AddComponent<SideScrollerSceneBootstrap>();
+            new GameObject("Third Person Scene Bootstrap").AddComponent<SideScrollerSceneBootstrap>();
         }
 
         if (Object.FindAnyObjectByType<PlayerSpawnPoint>() == null)

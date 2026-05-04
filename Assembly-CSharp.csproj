@@ -50,10 +50,11 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\Scripts\SideScrollerSceneBootstrap.cs" />
+    <Compile Include="Assets\Scripts\WitcherShoulderCamera.cs" />
     <Compile Include="Assets\Scripts\MainMenu.cs" />
     <Compile Include="Assets\Scripts\PlayerSpawnPoint.cs" />
+    <Compile Include="Assets\Scripts\PlayerVisualAnimator.cs" />
     <Compile Include="Assets\Scripts\SideScrollerPlayerController.cs" />
-    <Compile Include="Assets\Scripts\SideScrollerCameraFollow.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">

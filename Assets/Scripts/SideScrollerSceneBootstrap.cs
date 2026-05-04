@@ -4,7 +4,7 @@ using UnityEngine.SceneManagement;
 public sealed class SideScrollerSceneBootstrap : MonoBehaviour
 {
     [SerializeField] private SideScrollerPlayerController player;
-    [SerializeField] private SideScrollerCameraFollow cameraFollow;
+    [SerializeField] private WitcherShoulderCamera shoulderCamera;
 
     private static bool isSubscribedToSceneLoaded;
 
@@ -55,14 +55,10 @@ public sealed class SideScrollerSceneBootstrap : MonoBehaviour
             cameraObject.AddComponent<AudioListener>();
         }
 
-        camera.orthographic = false;
-        camera.fieldOfView = 45f;
-        camera.transform.rotation = Quaternion.identity;
-
-        SideScrollerCameraFollow follow = camera.GetComponent<SideScrollerCameraFollow>();
+        WitcherShoulderCamera follow = camera.GetComponent<WitcherShoulderCamera>();
         if (follow == null)
         {
-            follow = camera.gameObject.AddComponent<SideScrollerCameraFollow>();
+            follow = camera.gameObject.AddComponent<WitcherShoulderCamera>();
         }
 
         follow.Target = existingPlayer.transform;
@@ -78,14 +74,14 @@ public sealed class SideScrollerSceneBootstrap : MonoBehaviour
             player = FindAnyObjectByType<SideScrollerPlayerController>();
         }
 
-        if (cameraFollow == null && Camera.main != null)
+        if (shoulderCamera == null && Camera.main != null)
         {
-            cameraFollow = Camera.main.GetComponent<SideScrollerCameraFollow>();
+            shoulderCamera = Camera.main.GetComponent<WitcherShoulderCamera>();
         }
 
-        if (cameraFollow != null && cameraFollow.Target == null && player != null)
+        if (shoulderCamera != null && shoulderCamera.Target == null && player != null)
         {
-            cameraFollow.Target = player.transform;
+            shoulderCamera.Target = player.transform;
         }
     }
 
@@ -118,7 +114,7 @@ public sealed class SideScrollerSceneBootstrap : MonoBehaviour
         body.useGravity = true;
         body.interpolation = RigidbodyInterpolation.Interpolate;
         body.collisionDetectionMode = CollisionDetectionMode.Continuous;
-        body.constraints = RigidbodyConstraints.FreezeRotation;
+        body.constraints = RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationZ;
 
         SideScrollerPlayerController controller = playerObject.GetComponent<SideScrollerPlayerController>();
         if (controller == null)

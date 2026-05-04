@@ -37,7 +37,7 @@ public sealed class SideScrollerPlayerController : MonoBehaviour
         body.useGravity = true;
         body.interpolation = RigidbodyInterpolation.Interpolate;
         body.collisionDetectionMode = CollisionDetectionMode.Continuous;
-        body.constraints = RigidbodyConstraints.FreezeRotation;
+        body.constraints = RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationZ;
         bodyCollider.material = GetFrictionlessMaterial();
     }
 
@@ -52,11 +52,6 @@ public sealed class SideScrollerPlayerController : MonoBehaviour
         }
 
         moveDirection = GetCameraRelativeMoveDirection(moveInput);
-        if (faceMoveDirection && moveDirection.sqrMagnitude > 0.0001f)
-        {
-            Quaternion targetRotation = Quaternion.LookRotation(moveDirection.normalized, Vector3.up);
-            transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, turnSpeed * Time.deltaTime);
-        }
     }
 
     private void FixedUpdate()
@@ -76,6 +71,7 @@ public sealed class SideScrollerPlayerController : MonoBehaviour
 
         jumpQueued = false;
         body.linearVelocity = velocity;
+        RotateWithPhysicsStep();
     }
 
     private void OnCollisionEnter(Collision collision)
@@ -181,6 +177,18 @@ public sealed class SideScrollerPlayerController : MonoBehaviour
 
         Vector3 direction = right * input.x + forward * input.y;
         return direction.sqrMagnitude > 1f ? direction.normalized : direction;
+    }
+
+    private void RotateWithPhysicsStep()
+    {
+        if (!faceMoveDirection || moveDirection.sqrMagnitude <= 0.0001f)
+        {
+            return;
+        }
+
+        Quaternion targetRotation = Quaternion.LookRotation(moveDirection.normalized, Vector3.up);
+        Quaternion nextRotation = Quaternion.Slerp(body.rotation, targetRotation, turnSpeed * Time.fixedDeltaTime);
+        body.MoveRotation(nextRotation);
     }
 
     private bool WasJumpPressed()

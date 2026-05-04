@@ -648,22 +648,34 @@ MonoBehaviour:
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6ac3ec74f10545e79f0621f5cffd89c8, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::SideScrollerCameraFollow
+  m_EditorClassIdentifier: Assembly-CSharp::WitcherShoulderCamera
   target: {fileID: 1986883520}
-  lookOffset: {x: 0, y: 1.5, z: 0}
-  fieldOfView: 45
-  smoothTime: 0.16
-  rotationSmoothSpeed: 12
-  distance: 9
-  minDistance: 4
-  maxDistance: 18
-  yaw: 0
-  pitch: 28
-  minPitch: -15
-  maxPitch: 70
-  mouseSensitivity: 0.16
-  zoomSensitivity: 1.5
-  rotateOnlyWhileRightMouseHeld: 0
+  lookOffset: {x: 0, y: 1.58, z: 0}
+  autoAimAtUpperBody: 1
+  upperBodyAimRatio: 0.82
+  distance: 4.8
+  minDistance: 1.25
+  shoulderSide: 0.72
+  shoulderHeight: 0.15
+  pitch: 14
+  minPitch: -18
+  maxPitch: 48
+  mouseSensitivity: 0.11
+  gamepadSensitivity: 120
+  invertY: 0
+  recenterDelay: 0.75
+  recenterSpeed: 110
+  recenterMoveSpeed: 0.8
+  fieldOfView: 56
+  lookSmoothTime: 0.05
+  positionSmoothTime: 0.045
+  rotationSharpness: 26
+  collisionReturnSpeed: 18
+  collisionRadius: 0.28
+  wallPadding: 0.18
+  collisionMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
 --- !u!1 &410087039
 GameObject:
   m_ObjectHideFlags: 0
@@ -1045,7 +1057,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SideScrollerSceneBootstrap
   player: {fileID: 0}
-  cameraFollow: {fileID: 0}
+  shoulderCamera: {fileID: 0}
 --- !u!4 &564815414
 Transform:
   m_ObjectHideFlags: 0

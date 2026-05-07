@@ -16,7 +16,7 @@ MonoBehaviour:
   m_GridModes:
   - rid: 4128499125715468308
   - rid: 4128499125715468309
-  m_GridSize: {x: 1, y: 1, z: 1}
+  m_GridSize: {x: 0.5, y: 0.5, z: 0.5}
   m_GridMultiplier: 0
   references:
     version: 2

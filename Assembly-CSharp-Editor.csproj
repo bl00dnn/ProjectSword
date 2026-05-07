@@ -49,9 +49,8 @@
     <Analyzer Include="C:\Program Files\Unity\Hub\Editor\6000.4.5f1\Editor\Data\Tools\BuildPipeline\Unity.SourceGenerators\Unity.UIToolkit.SourceGenerator.dll" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\Scripts\Editor\HeroCharacterSetup.cs" />
-    <Compile Include="Assets\Scripts\Editor\HeroAnimationPostprocessor.cs" />
-    <Compile Include="Assets\Scripts\Editor\SideScrollerSceneSetup.cs" />
+    <Compile Include="Assets\Scripts\Editor\SergiusModelPostprocessor.cs" />
+    <Compile Include="Assets\Scripts\Editor\SergiusSceneSetup.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">

@@ -1,0 +1,20 @@
+[Licensing::Module] Trying to connect to existing licensing client channel...
+Built from '6000.4/staging' branch; Version is '6000.4.5f1 (cc83ebd631f8) revision 13403115'; Using compiler version '194234433'; Build Type 'Release'
+[Licensing::IpcConnector] Successfully connected to: "LicenseClient-bl00d" at "2026-05-07T20:44:41.6484066Z"
+OS: 'Windows 11  (10.0.26200) Core' Language: 'ru' Physical Memory: 31962 MB
+BatchMode: 1, IsHumanControllingUs: 0, StartBugReporterOnCrash: 0, Is64bit: 1
+System  architecture: x64
+Process architecture: x64
+Date: 2026-05-07T20:44:41Z
+
+COMMAND LINE ARGUMENTS:
+C:\Program Files\Unity\Hub\Editor\6000.4.5f1\Editor\Unity.exe
+-batchmode
+-quit
+-projectPath
+D:\WorkDiplom\UnityFiles\ProjectSword
+-logFile
+D:\WorkDiplom\UnityFiles\ProjectSword\Logs\CodexSceneValidation.log
+Successfully changed project path to: D:\WorkDiplom\UnityFiles\ProjectSword
+D:/WorkDiplom/UnityFiles/ProjectSword
+Exiting without the bug reporter. Application will terminate with return code 1

@@ -49,12 +49,12 @@
     <Analyzer Include="C:\Program Files\Unity\Hub\Editor\6000.4.5f1\Editor\Data\Tools\BuildPipeline\Unity.SourceGenerators\Unity.UIToolkit.SourceGenerator.dll" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\Scripts\SideScrollerSceneBootstrap.cs" />
-    <Compile Include="Assets\Scripts\WitcherShoulderCamera.cs" />
-    <Compile Include="Assets\Scripts\MainMenu.cs" />
+    <Compile Include="Assets\Scripts\SergiusSceneBootstrap.cs" />
+    <Compile Include="Assets\Scripts\SergiusAnimationDriver.cs" />
+    <Compile Include="Assets\Scripts\SergiusThirdPersonController.cs" />
+    <Compile Include="Assets\Scripts\WitcherLikeCamera.cs" />
     <Compile Include="Assets\Scripts\PlayerSpawnPoint.cs" />
-    <Compile Include="Assets\Scripts\PlayerVisualAnimator.cs" />
-    <Compile Include="Assets\Scripts\SideScrollerPlayerController.cs" />
+    <Compile Include="Assets\Scripts\SergiusInput.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">

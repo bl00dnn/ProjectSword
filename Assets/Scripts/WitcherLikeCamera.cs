@@ -6,7 +6,7 @@ public sealed class WitcherLikeCamera : MonoBehaviour
     [Header("Target")]
     [SerializeField] private Transform target;
     [SerializeField] private string targetName = "PlayerCapsule";
-    [SerializeField] private Vector3 cameraOffset = new Vector3(0.45f, 1.5f, -1.5f);
+    [SerializeField] private Vector3 cameraOffset = new Vector3(0.45f, 2f, -2f);
 
     [Header("Orbit")]
     [SerializeField] private float mouseSensitivity = 0.12f;

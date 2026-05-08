@@ -13,7 +13,7 @@ public sealed class SergiusSceneBootstrap : MonoBehaviour
     [SerializeField] private string spawnObjectName = "PlayerSpawn";
 
     [Header("Witcher Style Camera")]
-    [SerializeField] private Vector3 cameraOffset = new Vector3(0.45f, 1.5f, -1.5f);
+    [SerializeField] private Vector3 cameraOffset = new Vector3(0.45f, 2f, -2f);
     [SerializeField] private float mouseSensitivity = 0.12f;
     [SerializeField] private float followSmoothTime = 0.08f;
     [SerializeField] private float minPitch = -25f;

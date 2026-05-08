@@ -1,11 +1,11 @@
 [Licensing::Module] Trying to connect to existing licensing client channel...
-[Licensing::IpcConnector] Successfully connected to: "LicenseClient-bl00d" at "2026-05-07T22:10:40.1726234Z"
 Built from '6000.4/staging' branch; Version is '6000.4.5f1 (cc83ebd631f8) revision 13403115'; Using compiler version '194234433'; Build Type 'Release'
 OS: 'Windows 11  (10.0.26200) Core' Language: 'ru' Physical Memory: 31962 MB
+[Licensing::IpcConnector] Successfully connected to: "LicenseClient-bl00d" at "2026-05-08T10:31:10.0845506Z"
 BatchMode: 1, IsHumanControllingUs: 0, StartBugReporterOnCrash: 0, Is64bit: 1
 System  architecture: x64
 Process architecture: x64
-Date: 2026-05-07T22:10:40Z
+Date: 2026-05-08T10:31:10Z
 
 COMMAND LINE ARGUMENTS:
 C:\Program Files\Unity\Hub\Editor\6000.4.5f1\Editor\Unity.exe
@@ -19,7 +19,7 @@ D:/WorkDiplom/UnityFiles/ProjectSword
 -logFile
 Logs/AssetImportWorker16.log
 -srvPort
-55859
+61865
 -licensingIpc
 LicenseClient-bl00d
 -force-d3d12
@@ -68,14 +68,14 @@ D:/WorkDiplom/UnityFiles/ProjectSword
     "memorysetup-job-temp-allocator-block-size=2097152"
     "memorysetup-job-temp-allocator-block-size-background=1048576"
     "memorysetup-job-temp-allocator-reduction-small-platforms=262144"
-Player connection [29824]  Target information:
+Player connection [33972]  Target information:
 
-Player connection [29824]  * "[IP] 192.168.0.100 [Port] 0 [Flags] 2 [Guid] 1898668796 [EditorId] 1898668796 [Version] 1048832 [Id] WindowsEditor(7,DESKTOP-E609V0F) [Debug] 1 [PackageName] WindowsEditor [ProjectName] Editor" 
+Player connection [33972]  * "[IP] 192.168.0.100 [Port] 0 [Flags] 2 [Guid] 123672891 [EditorId] 123672891 [Version] 1048832 [Id] WindowsEditor(7,DESKTOP-E609V0F) [Debug] 1 [PackageName] WindowsEditor [ProjectName] Editor" 
 
-Player connection [29824]  * "[IP] 172.18.0.1 [Port] 0 [Flags] 2 [Guid] 1898668796 [EditorId] 1898668796 [Version] 1048832 [Id] WindowsEditor(7,DESKTOP-E609V0F) [Debug] 1 [PackageName] WindowsEditor [ProjectName] Editor" 
+Player connection [33972]  * "[IP] 172.18.0.1 [Port] 0 [Flags] 2 [Guid] 123672891 [EditorId] 123672891 [Version] 1048832 [Id] WindowsEditor(7,DESKTOP-E609V0F) [Debug] 1 [PackageName] WindowsEditor [ProjectName] Editor" 
 
-Player connection [29824] Host joined multi-casting on [225.0.0.222:54997]...
-Player connection [29824] Host joined alternative multi-casting on [225.0.0.222:34997]...
+Player connection [33972] Host joined multi-casting on [225.0.0.222:54997]...
+Player connection [33972] Host joined alternative multi-casting on [225.0.0.222:34997]...
 JobSystem: Creating JobQueue using job-worker-count value 11
 Input System module state changed to: Initialized.
 [Physics::Module] Initialized fallback backend.
@@ -87,7 +87,6 @@ Library Redirect Path: Library/
 [Physics::Module] SDK Version: 4.1.2
 [Physics::Module] Integration Version: 1.0.0
 [Physics::Module] Threading Mode: Multi-Threaded
-Refreshing native plugins compatible for Editor in 2.18 ms, found 4 plugins.
 Initialize engine version: 6000.4.5f1 (cc83ebd631f8)
 [Subsystems] Discovering subsystems at path C:/Program Files/Unity/Hub/Editor/6000.4.5f1/Editor/Data/Resources/UnitySubsystems
 [Subsystems] Discovering subsystems at path D:/WorkDiplom/UnityFiles/ProjectSword/Assets
@@ -101,33 +100,35 @@ Direct3D:
     VRAM:            5920 MB
     App VRAM Budget: 5152 MB
     Driver:          32.0.15.9621
-[Licensing::Client] Error: HandshakeResponse reported an error:
-	ResponseCode: 505
-	ResponseStatus: Unsupported protocol version '1.18.1'.
-[Licensing::Module] Error: Failed to handshake to channel: "LicenseClient-bl00d"
-[Licensing::IpcConnector] LicenseClient-bl00d channel disconnected successfully.
-[Licensing::IpcConnector] Successfully connected to: "LicenseClient-bl00d-6000.4.5" at "2026-05-07T22:10:41.7715142Z"
-[Licensing::Client] Code 10 while verifying Licensing Client signature (process Id: 39144, path: "C:/Program Files/Unity/Hub/Editor/6000.4.5f1/Editor/Data/Resources/Licensing/Client/Unity.Licensing.Client.exe")
-[Licensing::Module] LicensingClient has failed validation; ignoring
-[Licensing::Client] Handshaking with LicensingClient:
-  Version:                 1.18.1+9fbee8e
-  Session Id:              0d7ded35e8ae4db5b5e06845728a965e
-  Correlation Id:          efa44e45da40c7d84ca61a5779abc179
-  External correlation Id: 1585155720385989324
-  Machine Id:              zh3ngiu4ORagWkgmpHH7MkqLOjk=
-[Licensing::Module] Successfully connected to LicensingClient on channel: "LicenseClient-bl00d-6000.4.5" (connect: 0.00s, validation: 0.00s, handshake: 0.01s)
-[Licensing::IpcConnector] Successfully connected to: "LicenseClient-bl00d-6000.4.5-notifications" at "2026-05-07T22:10:41.7800371Z"
-[Licensing::Module] Licensing Background thread has ended after 1.61s
 Initialize mono
 Mono path[0] = 'C:/Program Files/Unity/Hub/Editor/6000.4.5f1/Editor/Data/Managed'
 Mono path[1] = 'C:/Program Files/Unity/Hub/Editor/6000.4.5f1/Editor/Data/MonoBleedingEdge/lib/mono/unityjit-win32'
 Mono config path = 'C:/Program Files/Unity/Hub/Editor/6000.4.5f1/Editor/Data/MonoBleedingEdge/etc'
-Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56168
+Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56936
 CodeReloadManager initialized
 Begin MonoManager ReloadAssembly
 Registering precompiled unity dll's ...
 Register platform support module: C:/Program Files/Unity/Hub/Editor/6000.4.5f1/Editor/Data/PlaybackEngines/WebGLSupport/UnityEditor.WebGL.Extensions.dll
 Register platform support module: C:/Program Files/Unity/Hub/Editor/6000.4.5f1/Editor/Data/PlaybackEngines/WindowsStandaloneSupport/UnityEditor.WindowsStandalone.Extensions.dll
+[Licensing::Module] Licensing is not yet initialized.
+[Licensing::Client] Error: HandshakeResponse reported an error:
+	ResponseCode: 505
+	ResponseStatus: Unsupported protocol version '1.18.1'.
+[Licensing::Module] Error: Failed to handshake to channel: "LicenseClient-bl00d"
+[Licensing::IpcConnector] LicenseClient-bl00d channel disconnected successfully.
+[Licensing::IpcConnector] Successfully connected to: "LicenseClient-bl00d-6000.4.5" at "2026-05-08T10:31:11.4236616Z"
+[Licensing::Client] Code 10 while verifying Licensing Client signature (process Id: 31856, path: "C:/Program Files/Unity/Hub/Editor/6000.4.5f1/Editor/Data/Resources/Licensing/Client/Unity.Licensing.Client.exe")
+[Licensing::Module] LicensingClient has failed validation; ignoring
+[Licensing::Client] Handshaking with LicensingClient:
+  Version:                 1.18.1+9fbee8e
+  Session Id:              ed32afc9dd3c4f74b60f53c3e1a53c92
+  Correlation Id:          9486e6a260014559c91c592abfd0e962
+  External correlation Id: 8146802495644580597
+  Machine Id:              zh3ngiu4ORagWkgmpHH7MkqLOjk=
+[Licensing::Module] Successfully connected to LicensingClient on channel: "LicenseClient-bl00d-6000.4.5" (connect: 0.00s, validation: 0.00s, handshake: 0.01s)
+[Licensing::IpcConnector] Successfully connected to: "LicenseClient-bl00d-6000.4.5-notifications" at "2026-05-08T10:31:11.4302944Z"
+[Licensing::Module] Licensing Background thread has ended after 1.35s
+[Licensing::Module] Licensing is initialized (took 0.66s).
 [Licensing::Client] Successfully resolved entitlement details
 [Licensing::Module] License group:
   Id: 10171410767635-UnityPersXXXX
@@ -135,7 +136,7 @@ Register platform support module: C:/Program Files/Unity/Hub/Editor/6000.4.5f1/E
   Type: Assigned
   Expiration: Unlimited
 Register platform support module: C:/Program Files/Unity/Hub/Editor/6000.4.5f1/Editor/Data/PlaybackEngines/MetroSupport/UnityEditor.UWP.Extensions.dll
-Registered in 0.003243 seconds.
+Registered in 0.667578 seconds.
 Native extension for UWP target not found
 Native extension for WindowsStandalone target not found
 Native extension for WebGL target not found
@@ -145,23 +146,23 @@ Package Manager log level set to [2]
 [Package Manager] Cannot connect to Unity Package Manager local server
 ScheduleIndexationOnStartup MainProcess:False IndexOnStartup:True
 Mono: successfully reloaded assembly
-- Finished resetting the current domain, in  0.338 seconds
-Domain Reload Profiling: 705ms
-	BeginReloadAssembly (113ms)
-	RebuildCommonClasses (32ms)
-	RebuildNativeTypeToScriptingClass (11ms)
-	initialDomainReloadingComplete (57ms)
-	LoadAllAssembliesAndSetupDomain (154ms)
-		LoadAssemblies (111ms)
-		AnalyzeDomain (147ms)
-			TypeCache.Refresh (146ms)
-				TypeCache.ScanAssembly (135ms)
-	FinalizeReload (339ms)
+- Finished resetting the current domain, in  0.261 seconds
+Domain Reload Profiling: 1206ms
+	BeginReloadAssembly (79ms)
+	RebuildCommonClasses (25ms)
+	RebuildNativeTypeToScriptingClass (10ms)
+	initialDomainReloadingComplete (704ms)
+	LoadAllAssembliesAndSetupDomain (126ms)
+		LoadAssemblies (77ms)
+		AnalyzeDomain (120ms)
+			TypeCache.Refresh (119ms)
+				TypeCache.ScanAssembly (110ms)
+	FinalizeReload (262ms)
 		SetupLoadedEditorAssemblies (0ms)
-			InitializePlatformSupportModulesInManaged (70ms)
-			BeforeProcessingInitializeOnLoad (70ms)
-			ProcessInitializeOnLoadAttributes (93ms)
-			ProcessInitializeOnLoadMethodAttributes (45ms)
+			InitializePlatformSupportModulesInManaged (56ms)
+			BeforeProcessingInitializeOnLoad (53ms)
+			ProcessInitializeOnLoadAttributes (68ms)
+			ProcessInitializeOnLoadMethodAttributes (36ms)
 ========================================================================
 Worker process is ready to serve import requests
 Import Worker Mode flag is 0x00
@@ -207,36 +208,280 @@ Native extension for WebGL target not found
 [Package Manager] Cannot connect to Unity Package Manager local server
 ScheduleIndexationOnStartup MainProcess:False IndexOnStartup:True
 Mono: successfully reloaded assembly
-- Finished resetting the current domain, in  0.577 seconds
-Domain Reload Profiling: 1238ms
-	BeginReloadAssembly (153ms)
-		DisableScriptedObjects (4ms)
-		CreateAndSetChildDomain (35ms)
-	RebuildCommonClasses (31ms)
-	RebuildNativeTypeToScriptingClass (10ms)
-	initialDomainReloadingComplete (46ms)
-	LoadAllAssembliesAndSetupDomain (420ms)
-		LoadAssemblies (280ms)
-		AnalyzeDomain (217ms)
-			TypeCache.Refresh (154ms)
-				TypeCache.ScanAssembly (141ms)
-			BuildScriptInfoCaches (53ms)
-			ResolveRequiredComponents (8ms)
-	FinalizeReload (577ms)
+- Finished resetting the current domain, in  0.466 seconds
+Domain Reload Profiling: 949ms
+	BeginReloadAssembly (112ms)
+		DisableScriptedObjects (3ms)
+		CreateAndSetChildDomain (22ms)
+	RebuildCommonClasses (24ms)
+	RebuildNativeTypeToScriptingClass (9ms)
+	initialDomainReloadingComplete (36ms)
+	LoadAllAssembliesAndSetupDomain (303ms)
+		LoadAssemblies (196ms)
+		AnalyzeDomain (163ms)
+			TypeCache.Refresh (114ms)
+				TypeCache.ScanAssembly (103ms)
+			BuildScriptInfoCaches (41ms)
+			ResolveRequiredComponents (7ms)
+	FinalizeReload (466ms)
 		SetupLoadedEditorAssemblies (0ms)
-			InitializePlatformSupportModulesInManaged (10ms)
-			BeforeProcessingInitializeOnLoad (116ms)
-			ProcessInitializeOnLoadAttributes (229ms)
-			ProcessInitializeOnLoadMethodAttributes (51ms)
+			InitializePlatformSupportModulesInManaged (8ms)
+			BeforeProcessingInitializeOnLoad (90ms)
+			ProcessInitializeOnLoadAttributes (191ms)
+			ProcessInitializeOnLoadMethodAttributes (43ms)
 			AfterProcessingInitializeOnLoad (4ms)
-		AwakeInstancesAfterBackupRestoration (5ms)
+		AwakeInstancesAfterBackupRestoration (4ms)
 Launched and connected shader compiler UnityShaderCompiler.exe after 0.01 seconds
 Unloading 24 Unused Serialized files (Serialized files now loaded: 0)
-Unloading 6541 unused Assets / (6.1 MB). Loaded Objects now: 7370.
-Memory consumption went from 164.1 MB to 157.9 MB.
-Total: 9.577500 ms (FindLiveObjects: 0.699500 ms CreateObjectMapping: 0.625700 ms MarkObjects: 4.845400 ms  DeleteObjects: 3.404500 ms)
+Unloading 6545 unused Assets / (4.8 MB). Loaded Objects now: 7377.
+Memory consumption went from 160.7 MB to 155.8 MB.
+Total: 5.836300 ms (FindLiveObjects: 0.617200 ms CreateObjectMapping: 0.187800 ms MarkObjects: 3.606600 ms  DeleteObjects: 1.423300 ms)
 
-Editor requested this worker to shutdown with reason: Scaling down because of idle timeout
-AssetImportWorker is now disconnected from the server
-Process exiting
-Exiting without the bug reporter. Application will terminate with return code 0
+========================================================================
+Received Import Request.
+  Time since last request: 2789.059105 seconds.
+  path: Assets/Multistory Dungeons 2/Textures/Atlas_Base_01_Specular.psd
+  importAddress: Guid(f16cfb1b681147dd9a2a3798e7876a2e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Multistory Dungeons 2/Textures/Atlas_Base_01_Specular.psd using Guid(f16cfb1b681147dd9a2a3798e7876a2e) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (Import Result ID: 'f1b359349843900ca880635904e30fcf') in 0.1026816 seconds [static and dynamic dependencies]. Details - ImportResultOutputID=647dfb8b93c843df2d76a0e83a076a6e DependenciesID=1873ad964d362c1aa7eff6c384bb35bd StaticDependenciesID=73bcb3301291498109e408fd3b3cc277 
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 2
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000034 seconds.
+  path: Assets/Multistory Dungeons 2/Textures/Atlas_Furniture_01_Normal.psd
+  importAddress: Guid(e2a78d032f964db9aa0405d80f0ed07e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Multistory Dungeons 2/Textures/Atlas_Furniture_01_Normal.psd using Guid(e2a78d032f964db9aa0405d80f0ed07e) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (Import Result ID: '62e59ad781682703eec4fd323a0b9ea0') in 0.0927167 seconds [static and dynamic dependencies]. Details - ImportResultOutputID=7db19e7a14015b8a90d53fc294ccbcb3 DependenciesID=5f3bd36c0d1eb4668bafe460e62ea684 StaticDependenciesID=8ec83c4c29ac3b2311f65f281cc58609 
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 2
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000025 seconds.
+  path: Assets/Multistory Dungeons 2/Textures/FX_Halo_MD_01.psd
+  importAddress: Guid(a173d92367364427b85b75417d68db5f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Multistory Dungeons 2/Textures/FX_Halo_MD_01.psd using Guid(a173d92367364427b85b75417d68db5f) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (Import Result ID: '500a35260fe949fc93d09f365b3dc705') in 0.0060877 seconds [static and dynamic dependencies]. Details - ImportResultOutputID=f60cd15009a0deeae506f9ea14183e77 DependenciesID=559f86583d935c75055f1baa56461a6e StaticDependenciesID=4184b489e98ebb2aa08d98acb2c19cc3 
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 2
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000014 seconds.
+  path: Assets/Multistory Dungeons 2/Textures/Atlas_Props_02_Specular.psd
+  importAddress: Guid(57d83ff8241d40f7adc94897a9bd289e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Multistory Dungeons 2/Textures/Atlas_Props_02_Specular.psd using Guid(57d83ff8241d40f7adc94897a9bd289e) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (Import Result ID: 'de6476f0ed9da190f0fef17c704709c3') in 0.0067015 seconds [static and dynamic dependencies]. Details - ImportResultOutputID=ebe8cace8d0a806dc4bdbf9b0cdd5285 DependenciesID=1744795c1e22ed75e4d45c2bfcf0571c StaticDependenciesID=fb4f1bd1887ce016251f6f16b4b19724 
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 2
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000017 seconds.
+  path: Assets/Multistory Dungeons 2/Textures/Atlas_Props_01_Specular.psd
+  importAddress: Guid(4338fee117284677837ee007a11ed407) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Multistory Dungeons 2/Textures/Atlas_Props_01_Specular.psd using Guid(4338fee117284677837ee007a11ed407) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (Import Result ID: '20de4cbcbb697ce855bf3facd9e84ade') in 0.0062895 seconds [static and dynamic dependencies]. Details - ImportResultOutputID=6f589fed430b19c06253bedce7b72e6d DependenciesID=ad9a9d939f212f545f1f3ffcb3ec36e9 StaticDependenciesID=6b596954db6f0cafe822abf5e943d974 
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 2
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000015 seconds.
+  path: Assets/Multistory Dungeons 2/Textures/Door_01_Normal.psd
+  importAddress: Guid(95e2e0fb78c141768da251ff7a699e76) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Multistory Dungeons 2/Textures/Door_01_Normal.psd using Guid(95e2e0fb78c141768da251ff7a699e76) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (Import Result ID: '0eb900d466ba5a8cd6021579ec414704') in 0.0051222 seconds [static and dynamic dependencies]. Details - ImportResultOutputID=b1ab03784a8f3d78f9c4132392c9f212 DependenciesID=2742e7218f6c9895002cb586b8cc45e0 StaticDependenciesID=02ce8429e2f0865fd1450abfa8ee0ac3 
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 2
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000014 seconds.
+  path: Assets/Multistory Dungeons 2/Textures/Door_01_Metallic.psd
+  importAddress: Guid(9d62796d47564dd88373e3fdd3e9dd09) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Multistory Dungeons 2/Textures/Door_01_Metallic.psd using Guid(9d62796d47564dd88373e3fdd3e9dd09) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (Import Result ID: '11cd470639e9e379d5ad5f057dec746e') in 0.0092782 seconds [static and dynamic dependencies]. Details - ImportResultOutputID=3645b69d112b1be078972badd30690b7 DependenciesID=22cde5e03479669aa028851ace6a1212 StaticDependenciesID=c9ca2273f7e63a4b8a4174ca5507abff 
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 2
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000019 seconds.
+  path: Assets/Multistory Dungeons 2/Textures/Atlas_Props_01.psd
+  importAddress: Guid(ee6f3aaa6abf4ce1a3100b4b20eeca71) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Multistory Dungeons 2/Textures/Atlas_Props_01.psd using Guid(ee6f3aaa6abf4ce1a3100b4b20eeca71) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (Import Result ID: '6b7dc41d22436e60ed58cf1d94061327') in 0.0119846 seconds [static and dynamic dependencies]. Details - ImportResultOutputID=8b7ce3c537f71bd893421f4dc451b5ad DependenciesID=16c93ebab1430c23d9749e768c042bc1 StaticDependenciesID=5589b00c025f298f15a6b5eea69e078f 
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 2
+
+========================================================================
+Received Import Request.
+  Time since last request: 1.994326 seconds.
+  path: Assets/Multistory Dungeons 2/Textures/SkyBoxes/SkyBox_Dark_Blue.psd
+  importAddress: Guid(f3f8fee121874149897e455d78883b16) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Multistory Dungeons 2/Textures/SkyBoxes/SkyBox_Dark_Blue.psd using Guid(f3f8fee121874149897e455d78883b16) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (Import Result ID: '8b42d5dc5e3f9e2ddf5b30185ec52f8c') in 0.3308969 seconds [static and dynamic dependencies]. Details - ImportResultOutputID=6be5cdd70d3a442a4617e8a77ccf738b DependenciesID=ace1b1fe372b1256e6cfe40d7bb8f0c1 StaticDependenciesID=50737a9eaa7b6570d2488168a219f70c 
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 1
+
+========================================================================
+Received Import Request.
+  Time since last request: 14.302087 seconds.
+  path: Assets/Multistory Dungeons 2/Textures/Materials/Candle_Fire_Material_01.mat
+  importAddress: Guid(a45f4884a50afbc44bad37be3541ce99) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Multistory Dungeons 2/Textures/Materials/Candle_Fire_Material_01.mat using Guid(a45f4884a50afbc44bad37be3541ce99) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (Import Result ID: 'fa0bcfaebfb6a07ca99024eae3c8471f') in 0.0447012 seconds [static and dynamic dependencies]. Details - ImportResultOutputID=4d1d42930b13554d8eac02c4f2c1ceb0 DependenciesID=cffb69b47558c5f33e6db09bded664e2 StaticDependenciesID=82085d4986a83db6c8b7cd5d5bb672d5 
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 2
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000023 seconds.
+  path: Assets/Multistory Dungeons 2/Textures/Materials/Halo_FX_Material_01.mat
+  importAddress: Guid(05e5e749c8904bf382ad879e613c54df) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Multistory Dungeons 2/Textures/Materials/Halo_FX_Material_01.mat using Guid(05e5e749c8904bf382ad879e613c54df) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (Import Result ID: 'ac51396f9447b542c2469782a48301e1') in 0.0236405 seconds [static and dynamic dependencies]. Details - ImportResultOutputID=e54090a2bb5e4eafcfbe91cc4e5a95eb DependenciesID=5f54c3af7bdaaa808fbf9139ab767435 StaticDependenciesID=831417417806bd80281cdc1f5b2db46a 
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 2
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000026 seconds.
+  path: Assets/Multistory Dungeons 2/Textures/Materials/Fog_FX_01.mat
+  importAddress: Guid(1de37beb95584d66aeeb5c13dd71f6d8) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Multistory Dungeons 2/Textures/Materials/Fog_FX_01.mat using Guid(1de37beb95584d66aeeb5c13dd71f6d8) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (Import Result ID: 'ae44d16d4c9e5edf76135abd054c9388') in 0.0496051 seconds [static and dynamic dependencies]. Details - ImportResultOutputID=03877e66584c82f085322353f5e05493 DependenciesID=101fe988595d6c48eb31fcd8b67a9831 StaticDependenciesID=b28954eee308bf2993b2f74170f689bb 
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 2
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000025 seconds.
+  path: Assets/Multistory Dungeons 2/Textures/Materials/Dummy_01.mat
+  importAddress: Guid(d20c572df239e3b43b0dbb2ee966ffb6) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Multistory Dungeons 2/Textures/Materials/Dummy_01.mat using Guid(d20c572df239e3b43b0dbb2ee966ffb6) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (Import Result ID: 'bc75c36cff156eb65ae7591f0712afcc') in 0.0113833 seconds [static and dynamic dependencies]. Details - ImportResultOutputID=3681eab3b67133155c364882df2806f6 DependenciesID=730b2865225a12b65341ef539fd5ef1b StaticDependenciesID=3aeff4e3649e94d2db19a302144ac0e4 
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 2
+
+========================================================================
+Received Import Request.
+  Time since last request: 37.003413 seconds.
+  path: Assets/Multistory Dungeons 2/Dungeon Architect Presets/Prefabs/Modules/TD_Tile_06.prefab
+  importAddress: Guid(266bb24fa3f34b3b897485d1ede1c0fe) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Multistory Dungeons 2/Dungeon Architect Presets/Prefabs/Modules/TD_Tile_06.prefab using Guid(266bb24fa3f34b3b897485d1ede1c0fe) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (Import Result ID: '085a61ad03cba4eb4dcc23ecd94ca748') in 0.1617278 seconds [static and dynamic dependencies]. Details - ImportResultOutputID=1a89f886abdea415f05cc2fad6ddb8cf DependenciesID=b437b053dc2fb9c2b8135b0a68262f4d StaticDependenciesID=4ec2c5b766fb2a5d259835f836a4ea9d 
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 467
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000022 seconds.
+  path: Assets/Multistory Dungeons 2/Dungeon Architect Presets/Prefabs/Modules/TD_Tile_09.prefab
+  importAddress: Guid(09b3d1264e4b4a999c96acd36ce79081) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Multistory Dungeons 2/Dungeon Architect Presets/Prefabs/Modules/TD_Tile_09.prefab using Guid(09b3d1264e4b4a999c96acd36ce79081) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (Import Result ID: 'e0496e4a1507b77c2a4e34105f8d92da') in 0.0955773 seconds [static and dynamic dependencies]. Details - ImportResultOutputID=d0e9e24a3442e743f008b6a0ac6c721c DependenciesID=0cb3f31c43ef5cb149307dd5f81e52e2 StaticDependenciesID=7b06c7f250d29e90a267f4980e8dc777 
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 604
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000060 seconds.
+  path: Assets/Multistory Dungeons 2/Dungeon Architect Presets/Prefabs/Modules/TD_Tile_12.prefab
+  importAddress: Guid(40156ad3aa4746c28e1cbe57eefce35c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Multistory Dungeons 2/Dungeon Architect Presets/Prefabs/Modules/TD_Tile_12.prefab using Guid(40156ad3aa4746c28e1cbe57eefce35c) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (Import Result ID: '92ef4086e46d9741b62dad1362d8363f') in 0.0767093 seconds [static and dynamic dependencies]. Details - ImportResultOutputID=84eedd9156487c66caef2a592062fe46 DependenciesID=65762c799e25d0a30ceb5a8d12d9eb70 StaticDependenciesID=cad25686a5a59ac2b21ca87cf95fd9f1 
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 580
+
+========================================================================
+Received Import Request.
+  Time since last request: 11.023730 seconds.
+  path: Assets/Multistory Dungeons 2/DunGen Presets/Connectors/Exit_Connection_Open_01.prefab
+  importAddress: Guid(0cc86250f8d74402a14dfeacdb0fb541) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Multistory Dungeons 2/DunGen Presets/Connectors/Exit_Connection_Open_01.prefab using Guid(0cc86250f8d74402a14dfeacdb0fb541) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (Import Result ID: 'e8314746d4388246c58137b909150d80') in 0.2881632 seconds [static and dynamic dependencies]. Details - ImportResultOutputID=ed36d5b022e9712860bd4a31421ef226 DependenciesID=818de2bfee80255ed7b94cac0b070a70 StaticDependenciesID=11fbb1e955842f59ebab6fcd0b96085f 
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 30
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000030 seconds.
+  path: Assets/Multistory Dungeons 2/DunGen Presets/Connectors/Railing_Blocker_02.prefab
+  importAddress: Guid(9887b557d8f24596b82acdbe96cdf244) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Multistory Dungeons 2/DunGen Presets/Connectors/Railing_Blocker_02.prefab using Guid(9887b557d8f24596b82acdbe96cdf244) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (Import Result ID: '36dd432680beabe80febd184ceb4d90c') in 0.0381372 seconds [static and dynamic dependencies]. Details - ImportResultOutputID=4df14610db644b032302eb2abce02996 DependenciesID=4219fd68fe292c21b0d4f39c1534043c StaticDependenciesID=b367c76579c9e2648ecf4b649c6c85b2 
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 45
+
+========================================================================
+Received Import Request.
+  Time since last request: 2.712607 seconds.
+  path: Assets/Multistory Dungeons 2/DunGen Presets/Demo/TD Demo Dungeon Archetype.asset
+  importAddress: Guid(b04602a8f3ef4716b83222f917bfb088) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Multistory Dungeons 2/DunGen Presets/Demo/TD Demo Dungeon Archetype.asset using Guid(b04602a8f3ef4716b83222f917bfb088) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (Import Result ID: 'dab50b8e22f896c14cf2b21ff6bbb15b') in 0.0008542 seconds [static and dynamic dependencies]. Details - ImportResultOutputID=4329ca76668610a6d2ea50abcf2dd54d DependenciesID=d057a3d0b973f580622ca9e73f00c60a StaticDependenciesID=f8db2c6be8859150b2f56a91ca3214a7 
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 1
+
+========================================================================
+Received Import Request.
+  Time since last request: 1.612904 seconds.
+  path: Assets/Multistory Dungeons 2/DunGen Presets/First-Person Rooms/FP_Room_06.prefab
+  importAddress: Guid(defbb3aff73a4bdfa6240376bee2dcd3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Multistory Dungeons 2/DunGen Presets/First-Person Rooms/FP_Room_06.prefab using Guid(defbb3aff73a4bdfa6240376bee2dcd3) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (Import Result ID: 'a782fa8eac9396fbb33181a6db4488ba') in 0.1751681 seconds [static and dynamic dependencies]. Details - ImportResultOutputID=f80f7a79924a4ee216164d510f47b030 DependenciesID=501045e5a8ebbd3cf1bfd2a8012a57ec StaticDependenciesID=f09cee3eb767b1482a839cf379c37ef3 
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 659
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000028 seconds.
+  path: Assets/Multistory Dungeons 2/DunGen Presets/First-Person Rooms/FP_Room_14.prefab
+  importAddress: Guid(97407f7cca2842af94ce30444a114637) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Multistory Dungeons 2/DunGen Presets/First-Person Rooms/FP_Room_14.prefab using Guid(97407f7cca2842af94ce30444a114637) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (Import Result ID: '472f4678ea982946dc8663675590d3c7') in 0.1395712 seconds [static and dynamic dependencies]. Details - ImportResultOutputID=749a46cf30d59ba8eb0d518ccc807642 DependenciesID=9ef656bff8dd0397cc4f7b35dca22e76 StaticDependenciesID=174bfead9326422f952a42ea479353ff 
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 1746
+
+========================================================================
+Received Import Request.
+  Time since last request: 2.109525 seconds.
+  path: Assets/Multistory Dungeons 2/DunGen Presets/Top-Down Tiles/TD_Tile_03_A.prefab
+  importAddress: Guid(b0faf1c45bd04f2bae18b548d2e8c58f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Multistory Dungeons 2/DunGen Presets/Top-Down Tiles/TD_Tile_03_A.prefab using Guid(b0faf1c45bd04f2bae18b548d2e8c58f) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (Import Result ID: 'c9b83705916938383c05fcf0f83f99b2') in 0.1248816 seconds [static and dynamic dependencies]. Details - ImportResultOutputID=d7c8b8094f0787d8e6b9bdaaa53406a0 DependenciesID=57fb2136efd9a5ef20e1ab8d429e1f38 StaticDependenciesID=a499dba5dadd8f8b80b9fe1e01379c56 
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 784
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000027 seconds.
+  path: Assets/Multistory Dungeons 2/DunGen Presets/Top-Down Tiles/TD_Tile_10_A.prefab
+  importAddress: Guid(8ecb32fb4c964a79859a7f1d7aa6654e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Multistory Dungeons 2/DunGen Presets/Top-Down Tiles/TD_Tile_10_A.prefab using Guid(8ecb32fb4c964a79859a7f1d7aa6654e) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (Import Result ID: '04f872fa5947f770c68faa260b73ae44') in 0.1064469 seconds [static and dynamic dependencies]. Details - ImportResultOutputID=54fc399c012cabc6b04759a2d5309092 DependenciesID=8f4dfe6b720ad5205f7443bb34711c49 StaticDependenciesID=54cd63fddea719100441b6fc82ce151b 
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 1238
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000038 seconds.
+  path: Assets/Multistory Dungeons 2/DunGen Presets/Top-Down Tiles/TD_Tile_07.prefab
+  importAddress: Guid(dd37967004434d45b659d81970cf1e6d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Multistory Dungeons 2/DunGen Presets/Top-Down Tiles/TD_Tile_07.prefab using Guid(dd37967004434d45b659d81970cf1e6d) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (Import Result ID: '312d881b4b58faf06465c48d403e19f4') in 0.0787966 seconds [static and dynamic dependencies]. Details - ImportResultOutputID=f5294ff534ed9b16c65124b6cbc2c986 DependenciesID=fc3dfd3889871277ee76bfd4a77d812d StaticDependenciesID=5b727433e2efc0f21bc52180b8f11c89 
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 1066
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000026 seconds.
+  path: Assets/Multistory Dungeons 2/DunGen Presets/Top-Down Tiles/TD_Tile_15_A.prefab
+  importAddress: Guid(5bc47b250b9c4f8987f3df4320f1b424) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Multistory Dungeons 2/DunGen Presets/Top-Down Tiles/TD_Tile_15_A.prefab using Guid(5bc47b250b9c4f8987f3df4320f1b424) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (Import Result ID: '102dec65b09bdb5b5603d0f62ba8b354') in 0.0602154 seconds [static and dynamic dependencies]. Details - ImportResultOutputID=f67be7ee84e940eede8b3c174107d4d6 DependenciesID=894184a12960ce4feb8744de45d92adc StaticDependenciesID=a540f5138d24b151558f157938409a35 
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 854
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000042 seconds.
+  path: Assets/Multistory Dungeons 2/DunGen Presets/Top-Down Tiles/TD_Tile_26.prefab
+  importAddress: Guid(d7341e91d0524a90b8a4b9fa6569b5ff) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Multistory Dungeons 2/DunGen Presets/Top-Down Tiles/TD_Tile_26.prefab using Guid(d7341e91d0524a90b8a4b9fa6569b5ff) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (Import Result ID: '388e2dc84c4349f87c9cdc93af3c8bb1') in 0.0782393 seconds [static and dynamic dependencies]. Details - ImportResultOutputID=b63a7fb10be0e0daf0e849de97f05652 DependenciesID=7436de0768407e67e2024aca631721ec StaticDependenciesID=c631d851cd2425249fb2fe9d63b99d1f 
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 1152
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000043 seconds.
+  path: Assets/Multistory Dungeons 2/DunGen Presets/Top-Down Tiles/TD_Tile_16_A.prefab
+  importAddress: Guid(925c1fab9cd24cd6be83089af2ce40ee) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Multistory Dungeons 2/DunGen Presets/Top-Down Tiles/TD_Tile_16_A.prefab using Guid(925c1fab9cd24cd6be83089af2ce40ee) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (Import Result ID: '58ad22c505a6d4a93f0329ac103638d8') in 0.0728858 seconds [static and dynamic dependencies]. Details - ImportResultOutputID=9248dfaad3107df72eaed1141005609c DependenciesID=8fe202721575b1657fb1cf23aa7ca351 StaticDependenciesID=800dd995ec89158198e7e86ce4ef43b9 
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 739
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000101 seconds.
+  path: Assets/Multistory Dungeons 2/DunGen Presets/Top-Down Tiles/TD_Tile_Exit_01.prefab
+  importAddress: Guid(6da2db1fba1e4491a38f6b190c581cc3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Multistory Dungeons 2/DunGen Presets/Top-Down Tiles/TD_Tile_Exit_01.prefab using Guid(6da2db1fba1e4491a38f6b190c581cc3) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (Import Result ID: 'a8f585d0d36d94523220892736dea90c') in 0.070907 seconds [static and dynamic dependencies]. Details - ImportResultOutputID=b2222351b620258bb17e354ffda0c7b0 DependenciesID=e43a81c6e233645ccb4dd40acd1110fa StaticDependenciesID=669c61ce0bf445e5e7b69272d723fe6a 
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 1707
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000030 seconds.
+  path: Assets/Multistory Dungeons 2/DunGen Presets/Top-Down Tiles/TD_Tile_27.prefab
+  importAddress: Guid(7e7a2d0907f242bab4ee5bebc694c4d8) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Multistory Dungeons 2/DunGen Presets/Top-Down Tiles/TD_Tile_27.prefab using Guid(7e7a2d0907f242bab4ee5bebc694c4d8) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (Import Result ID: 'fa16d2c02fcfb714a771b8631fb7fd8b') in 0.0836649 seconds [static and dynamic dependencies]. Details - ImportResultOutputID=65730ab30f5d75c218c8d69a7ce4f8f1 DependenciesID=914f6140465921215f61e0f2942ef122 StaticDependenciesID=a46a8f93c1bc5acf0ba633d93bd7a543 
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 1280
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000054 seconds.
+  path: Assets/Multistory Dungeons 2/DunGen Presets/Top-Down Tiles/TD_Tile_06_A.prefab
+  importAddress: Guid(5938464fef5d41bcab732228025d43a6) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Multistory Dungeons 2/DunGen Presets/Top-Down Tiles/TD_Tile_06_A.prefab using Guid(5938464fef5d41bcab732228025d43a6) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (Import Result ID: '69d9aa547244129b287f9bc267bf8d2b') in 0.0672748 seconds [static and dynamic dependencies]. Details - ImportResultOutputID=92177af66d9a9d42f9a92bc265fef46b DependenciesID=3c832126d204c0fedd3763403030ba03 StaticDependenciesID=e0601ef5b5fce32bf1adb19f4d23e1f7 
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 771
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000034 seconds.
+  path: Assets/Multistory Dungeons 2/DunGen Presets/Top-Down Tiles/TD_Tile_19.prefab
+  importAddress: Guid(927b9c6681bd4405bcca954f50dd5bdb) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Multistory Dungeons 2/DunGen Presets/Top-Down Tiles/TD_Tile_19.prefab using Guid(927b9c6681bd4405bcca954f50dd5bdb) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (Import Result ID: '2204309b17919ee3b5b45339d620b3e1') in 0.0787198 seconds [static and dynamic dependencies]. Details - ImportResultOutputID=3c894dbd752e5de17499ac58cb642478 DependenciesID=952d90f79bd097c73479b3051fc360b5 StaticDependenciesID=6b140a25cf48e803a55467aeb5901287 
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 1501
+

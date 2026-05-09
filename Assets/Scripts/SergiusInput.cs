@@ -63,10 +63,10 @@ internal static class SergiusInput
 #if ENABLE_INPUT_SYSTEM
         Keyboard keyboard = Keyboard.current;
         Gamepad gamepad = Gamepad.current;
-        return (keyboard != null && keyboard.leftShiftKey.isPressed) ||
+        return (keyboard != null && (keyboard.leftShiftKey.isPressed || keyboard.rightShiftKey.isPressed)) ||
                (gamepad != null && gamepad.leftStickButton.isPressed);
 #else
-        return Input.GetKey(KeyCode.LeftShift);
+        return Input.GetKey(KeyCode.LeftShift) || Input.GetKey(KeyCode.RightShift);
 #endif
     }
 

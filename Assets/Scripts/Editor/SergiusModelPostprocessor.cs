@@ -7,7 +7,8 @@ public sealed class SergiusModelPostprocessor : AssetPostprocessor
     {
         "Assets/Character/T-Pose.fbx",
         "Assets/Character/Idle.fbx",
-        "Assets/Character/Walking.fbx"
+        "Assets/Character/Walking.fbx",
+        "Assets/Character/Slow Run.fbx"
     };
 
     [InitializeOnLoadMethod]

@@ -6,9 +6,9 @@ public sealed class WitcherLikeCamera : MonoBehaviour
     [Header("Target")]
     [SerializeField] private Transform target;
     [SerializeField] private string targetName = "PlayerCapsule";
-    [SerializeField] private Vector3 cameraOffset = new Vector3(0.45f, 2f, -2f);
+    [SerializeField] private Vector3 cameraOffset = new Vector3(0.45f, 1.85f, -3.25f);
 
-    [Header("Orbit")]
+    [Header("Third Person Orbit")]
     [SerializeField] private float mouseSensitivity = 0.12f;
     [SerializeField] private float minPitch = -25f;
     [SerializeField] private float maxPitch = 55f;
@@ -16,7 +16,6 @@ public sealed class WitcherLikeCamera : MonoBehaviour
 
     [Header("Feel")]
     [SerializeField] private float followSmoothTime = 0.08f;
-    [SerializeField] private float rotationSmooth = 16f;
     [SerializeField] private float collisionRadius = 0.24f;
     [SerializeField] private LayerMask collisionMask = ~0;
 
@@ -72,8 +71,7 @@ public sealed class WitcherLikeCamera : MonoBehaviour
 
         transform.position = Vector3.SmoothDamp(transform.position, desiredPosition, ref followVelocity, followSmoothTime);
 
-        Quaternion desiredRotation = Quaternion.LookRotation(pivot - transform.position, Vector3.up);
-        transform.rotation = Quaternion.Slerp(transform.rotation, desiredRotation, 1f - Mathf.Exp(-rotationSmooth * Time.deltaTime));
+        transform.rotation = Quaternion.LookRotation(pivot - transform.position, Vector3.up);
     }
 
     private void SnapBehindTarget()

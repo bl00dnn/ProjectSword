@@ -55,6 +55,7 @@
     <Compile Include="Assets\Dark_Fantasy\Assets\CharaPref\Script\Other\gizmosCube.cs" />
     <Compile Include="Assets\Dark_Fantasy\Assets\CharaPref\Script\Character\characterMovement.cs" />
     <Compile Include="Assets\Dark_Fantasy\Assets\CharaPref\Script\Camera\AP_Cam_Follow.cs" />
+    <Compile Include="Assets\Scripts\SergiusFootstepAudio.cs" />
     <Compile Include="Assets\Multistory Dungeons 2\Scripts\DisableMeshAtRuntime.cs" />
     <Compile Include="Assets\Scripts\SergiusThirdPersonController.cs" />
     <Compile Include="Assets\Dark_Fantasy\Assets\CharaPref\Script\Character\footstepSystem.cs" />

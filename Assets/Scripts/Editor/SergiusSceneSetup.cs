@@ -11,9 +11,16 @@ public static class SergiusSceneSetup
     private const string CharacterPrefabPath = "Assets/Character/Sergius.prefab";
     private const string ControllerPath = "Assets/Character/Sergius.controller";
     private const string IdlePath = "Assets/Character/Idle.fbx";
-    private const string RunPath = "Assets/Character/Walking.fbx";
+    private const string WalkingPath = "Assets/Character/Walking.fbx";
+    private const string RunPath = "Assets/Character/Slow Run.fbx";
     private const string IdleClipPath = "Assets/Character/Sergius_Idle.anim";
+    private const string WalkingClipPath = "Assets/Character/Sergius_Walking.anim";
     private const string RunClipPath = "Assets/Character/Sergius_Run.anim";
+    private static readonly string[] FootstepClipPaths =
+    {
+        "Assets/Character/Audio/Footstep_HardSurface_01.wav",
+        "Assets/Character/Audio/Footstep_HardSurface_03.wav"
+    };
     private const string CharacterName = "PlayerCapsule";
     private const string ExistingCapsuleName = "Capsule";
     private const string SpawnName = "PlayerSpawn";
@@ -21,12 +28,7 @@ public static class SergiusSceneSetup
     [InitializeOnLoadMethod]
     private static void BuildOnceWhenEditorReloads()
     {
-        if (AssetDatabase.LoadAssetAtPath<GameObject>(CharacterPrefabPath) != null)
-        {
-            return;
-        }
-
-        const string sessionKey = "ProjectSword.SergiusCharacterPrefabBuilt.V2";
+        const string sessionKey = "ProjectSword.SergiusCharacterPrefabBuilt.V8";
         if (SessionState.GetBool(sessionKey, false))
         {
             return;
@@ -99,6 +101,11 @@ public static class SergiusSceneSetup
         bootstrapSerialized.FindProperty("characterRoot").objectReferenceValue = character.transform;
         bootstrapSerialized.FindProperty("spawnPoint").objectReferenceValue = spawn.GetComponent<PlayerSpawnPoint>();
         bootstrapSerialized.FindProperty("spawnObjectName").stringValue = SpawnName;
+        bootstrapSerialized.FindProperty("cameraOffset").vector3Value = new Vector3(0.45f, 1.85f, -3.25f);
+        bootstrapSerialized.FindProperty("mouseSensitivity").floatValue = 0.12f;
+        bootstrapSerialized.FindProperty("followSmoothTime").floatValue = 0.08f;
+        bootstrapSerialized.FindProperty("minPitch").floatValue = -25f;
+        bootstrapSerialized.FindProperty("maxPitch").floatValue = 55f;
         bootstrapSerialized.ApplyModifiedPropertiesWithoutUndo();
 
         SergiusThirdPersonController thirdPersonController = character.GetComponent<SergiusThirdPersonController>();
@@ -143,6 +150,7 @@ public static class SergiusSceneSetup
         RuntimeAnimatorController controller = AssetDatabase.LoadAssetAtPath<RuntimeAnimatorController>(ControllerPath);
         Avatar avatar = AssetDatabase.LoadAssetAtPath<Avatar>(CharacterModelPath);
         AnimationClip idleClip = AssetDatabase.LoadAssetAtPath<AnimationClip>(IdleClipPath);
+        AnimationClip walkingClip = AssetDatabase.LoadAssetAtPath<AnimationClip>(WalkingClipPath);
         AnimationClip runClip = AssetDatabase.LoadAssetAtPath<AnimationClip>(RunClipPath);
 
         if (modelPrefab == null || controller == null || avatar == null)
@@ -213,11 +221,13 @@ public static class SergiusSceneSetup
         SerializedObject animationDriverSerialized = new SerializedObject(animationDriver);
         animationDriverSerialized.FindProperty("animator").objectReferenceValue = animator;
         animationDriverSerialized.FindProperty("idleClip").objectReferenceValue = idleClip;
+        animationDriverSerialized.FindProperty("walkingClip").objectReferenceValue = walkingClip;
         animationDriverSerialized.FindProperty("runClip").objectReferenceValue = runClip;
         animationDriverSerialized.FindProperty("additionalClips").arraySize = 0;
         animationDriverSerialized.FindProperty("animatorController").objectReferenceValue = controller;
         animationDriverSerialized.FindProperty("characterAvatar").objectReferenceValue = avatar;
         animationDriverSerialized.FindProperty("speedParameter").stringValue = "Speed";
+        animationDriverSerialized.FindProperty("sprintParameter").stringValue = "Sprint";
         animationDriverSerialized.FindProperty("jumpTrigger").stringValue = "Jump";
         animationDriverSerialized.FindProperty("driveClipsDirectly").boolValue = true;
         animationDriverSerialized.ApplyModifiedPropertiesWithoutUndo();
@@ -233,17 +243,50 @@ public static class SergiusSceneSetup
         thirdPersonSerialized.FindProperty("animationDriver").objectReferenceValue = animationDriver;
         thirdPersonSerialized.ApplyModifiedPropertiesWithoutUndo();
 
+        AudioSource footstepSource = root.GetComponent<AudioSource>();
+        if (footstepSource == null)
+        {
+            footstepSource = root.AddComponent<AudioSource>();
+        }
+
+        footstepSource.playOnAwake = false;
+        footstepSource.spatialBlend = 1f;
+        footstepSource.rolloffMode = AudioRolloffMode.Linear;
+        footstepSource.minDistance = 1.5f;
+        footstepSource.maxDistance = 14f;
+
+        SergiusFootstepAudio footstepAudio = root.GetComponent<SergiusFootstepAudio>();
+        if (footstepAudio == null)
+        {
+            footstepAudio = root.AddComponent<SergiusFootstepAudio>();
+        }
+
+        SerializedObject footstepSerialized = new SerializedObject(footstepAudio);
+        footstepSerialized.FindProperty("characterController").objectReferenceValue = characterController;
+        footstepSerialized.FindProperty("audioSource").objectReferenceValue = footstepSource;
+        footstepSerialized.FindProperty("volume").floatValue = 0.35f;
+
+        SerializedProperty clipsProperty = footstepSerialized.FindProperty("footstepClips");
+        clipsProperty.arraySize = FootstepClipPaths.Length;
+        for (int i = 0; i < FootstepClipPaths.Length; i++)
+        {
+            clipsProperty.GetArrayElementAtIndex(i).objectReferenceValue = AssetDatabase.LoadAssetAtPath<AudioClip>(FootstepClipPaths[i]);
+        }
+
+        footstepSerialized.ApplyModifiedPropertiesWithoutUndo();
+
         EditorUtility.SetDirty(root);
     }
 
     private static RuntimeAnimatorController BuildAnimatorController()
     {
         AnimationClip idleClip = AssetDatabase.LoadAssetAtPath<AnimationClip>(IdleClipPath);
+        AnimationClip walkingClip = AssetDatabase.LoadAssetAtPath<AnimationClip>(WalkingClipPath);
         AnimationClip runClip = AssetDatabase.LoadAssetAtPath<AnimationClip>(RunClipPath);
 
-        if (idleClip == null || runClip == null)
+        if (idleClip == null || walkingClip == null || runClip == null)
         {
-            Debug.LogError("Sergius controller setup failed: missing Idle or Walking animation clip.");
+            Debug.LogError("Sergius controller setup failed: missing Sergius_Idle, Sergius_Walking, or Sergius_Run animation clip.");
             return null;
         }
 
@@ -260,6 +303,7 @@ public static class SergiusSceneSetup
 
         controller.parameters = new AnimatorControllerParameter[0];
         controller.AddParameter("Speed", AnimatorControllerParameterType.Float);
+        controller.AddParameter("Sprint", AnimatorControllerParameterType.Bool);
 
         AnimatorControllerLayer layer = controller.layers[0];
         layer.name = "Base Layer";
@@ -272,21 +316,47 @@ public static class SergiusSceneSetup
         idleState.motion = idleClip;
         idleState.iKOnFeet = true;
 
-        AnimatorState runState = stateMachine.AddState("Run", new Vector3(540f, 80f, 0f));
+        AnimatorState walkingState = stateMachine.AddState("Walking", new Vector3(540f, 80f, 0f));
+        walkingState.motion = walkingClip;
+        walkingState.iKOnFeet = true;
+
+        AnimatorState runState = stateMachine.AddState("Run", new Vector3(780f, 80f, 0f));
         runState.motion = runClip;
         runState.iKOnFeet = true;
 
         stateMachine.defaultState = idleState;
 
+        AnimatorStateTransition idleToWalking = idleState.AddTransition(walkingState);
+        idleToWalking.hasExitTime = false;
+        idleToWalking.duration = 0.15f;
+        idleToWalking.AddCondition(AnimatorConditionMode.Greater, 0.05f, "Speed");
+        idleToWalking.AddCondition(AnimatorConditionMode.IfNot, 0f, "Sprint");
+
         AnimatorStateTransition idleToRun = idleState.AddTransition(runState);
         idleToRun.hasExitTime = false;
         idleToRun.duration = 0.15f;
         idleToRun.AddCondition(AnimatorConditionMode.Greater, 0.05f, "Speed");
+        idleToRun.AddCondition(AnimatorConditionMode.If, 0f, "Sprint");
+
+        AnimatorStateTransition walkingToIdle = walkingState.AddTransition(idleState);
+        walkingToIdle.hasExitTime = false;
+        walkingToIdle.duration = 0.15f;
+        walkingToIdle.AddCondition(AnimatorConditionMode.Less, 0.05f, "Speed");
+
+        AnimatorStateTransition walkingToRun = walkingState.AddTransition(runState);
+        walkingToRun.hasExitTime = false;
+        walkingToRun.duration = 0.15f;
+        walkingToRun.AddCondition(AnimatorConditionMode.If, 0f, "Sprint");
 
         AnimatorStateTransition runToIdle = runState.AddTransition(idleState);
         runToIdle.hasExitTime = false;
         runToIdle.duration = 0.15f;
         runToIdle.AddCondition(AnimatorConditionMode.Less, 0.05f, "Speed");
+
+        AnimatorStateTransition runToWalking = runState.AddTransition(walkingState);
+        runToWalking.hasExitTime = false;
+        runToWalking.duration = 0.15f;
+        runToWalking.AddCondition(AnimatorConditionMode.IfNot, 0f, "Sprint");
 
         controller.layers = new[] { layer };
         EditorUtility.SetDirty(controller);
@@ -298,6 +368,7 @@ public static class SergiusSceneSetup
     private static void BuildAnimationClipAssets()
     {
         CreateAnimationClipAsset(IdlePath, IdleClipPath, "Sergius_Idle", true);
+        CreateAnimationClipAsset(WalkingPath, WalkingClipPath, "Sergius_Walking", true);
         CreateAnimationClipAsset(RunPath, RunClipPath, "Sergius_Run", true);
     }
 
@@ -345,6 +416,7 @@ public static class SergiusSceneSetup
     {
         ConfigureAnimationImport(CharacterModelPath, false);
         ConfigureAnimationImport(IdlePath, true);
+        ConfigureAnimationImport(WalkingPath, true);
         ConfigureAnimationImport(RunPath, true);
     }
 

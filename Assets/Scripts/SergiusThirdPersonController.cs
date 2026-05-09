@@ -95,8 +95,8 @@ public sealed class SergiusThirdPersonController : MonoBehaviour
         velocity.y = verticalVelocity;
         characterController.Move(velocity * Time.deltaTime);
 
-        float animationAmount = Mathf.InverseLerp(0f, runSpeed, currentSpeed);
-        animationDriver?.SetMoveAmount(animationAmount);
+        float animationAmount = inputMagnitude;
+        animationDriver?.SetMoveAmount(animationAmount, sprintPressed && inputMagnitude > 0.01f);
     }
 
     private Vector3 GetCameraRelativeMove(Vector2 moveInput)

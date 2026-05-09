@@ -12,6 +12,8 @@ GameObject:
   - component: {fileID: 6281786830552113322}
   - component: {fileID: 8219358525699195807}
   - component: {fileID: 5327464993810436296}
+  - component: {fileID: 8150157387663026999}
+  - component: {fileID: 8841350932069143110}
   m_Layer: 0
   m_Name: Sergius
   m_TagString: Untagged
@@ -74,11 +76,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::SergiusAnimationDriver
   animator: {fileID: 1248417933034706594}
   idleClip: {fileID: 7400000, guid: 1d9168b920af8c647b85658c2b1cf0de, type: 2}
-  runClip: {fileID: 7400000, guid: 422aa8de3e1f085479e674eda2cd0e54, type: 2}
+  walkingClip: {fileID: 7400000, guid: 422aa8de3e1f085479e674eda2cd0e54, type: 2}
+  runClip: {fileID: 7400000, guid: 5335adcfcaa413849a3dc879662bd0a2, type: 2}
   additionalClips: []
   animatorController: {fileID: 9100000, guid: 72f2516d38dd48d4b80d13f5d43b5d1d, type: 2}
   characterAvatar: {fileID: 9000000, guid: 33fca81cffa120048b0af9ddecb504ae, type: 3}
   speedParameter: Speed
+  sprintParameter: Sprint
   jumpTrigger: Jump
   blendSharpness: 10
   driveClipsDirectly: 1
@@ -103,6 +107,125 @@ MonoBehaviour:
   followCamera: {fileID: 0}
   characterController: {fileID: 6281786830552113322}
   animationDriver: {fileID: 8219358525699195807}
+--- !u!82 &8150157387663026999
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5204271669090553711}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_Resource: {fileID: 0}
+  m_PlayOnAwake: 0
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1.5
+  MaxDistance: 14
+  Pan2D: 0
+  rolloffMode: 1
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+--- !u!114 &8841350932069143110
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5204271669090553711}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9e61ad4df15b4d44aa38e84dfd89a8cf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::SergiusFootstepAudio
+  characterController: {fileID: 6281786830552113322}
+  audioSource: {fileID: 8150157387663026999}
+  footstepClips:
+  - {fileID: 8300000, guid: d0b8fc7d0879d0e419ccad50c73c19f7, type: 3}
+  - {fileID: 8300000, guid: 3e85fa0328feb8249b2b1f37d98c1fd4, type: 3}
+  walkStepInterval: 0.48
+  runStepInterval: 0.32
+  minHorizontalSpeed: 0.15
+  volume: 0.35
+  pitchVariation: 0.06
 --- !u!1001 &4627959714439916339
 PrefabInstance:
   m_ObjectHideFlags: 0

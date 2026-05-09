@@ -20,5 +20,5 @@ MonoBehaviour:
   m_Values:
   - '{"m_FixedPaneDimension":225.0}'
   - '{"m_ScrollOffset":{"x":0.0,"y":0.0}}'
-  - '{"m_Value":0.0,"m_LowValue":0.0,"m_HighValue":-128.80001831054688}'
+  - '{"m_Value":0.0,"m_LowValue":0.0,"m_HighValue":-129.0}'
   - '{"m_Value":0.0,"m_LowValue":0.0,"m_HighValue":0.0}'

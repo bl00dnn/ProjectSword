@@ -19,7 +19,7 @@ MonoBehaviour:
     width: 1918
     height: 980
   m_ShowMode: 4
-  m_Title: Game
+  m_Title: Project
   m_RootView: {fileID: 2}
   m_MinSize: {x: 875, y: 300}
   m_MaxSize: {x: 10000, y: 10000}
@@ -690,12 +690,18 @@ MonoBehaviour:
     m_DynamicPanelBehavior: 0
   m_SceneHierarchy:
     m_TreeViewState:
-      scrollPos: {x: 0, y: 0}
+      scrollPos: {x: 0, y: 1337}
       m_SelectedIDs: []
       m_LastClickedID:
         m_Data: 0
       m_ExpandedIDs:
-      - m_Data: -249482
+      - m_Data: -279278
+      - m_Data: -272290
+      - m_Data: -271744
+      - m_Data: -252104
+      - m_Data: 459122
+      - m_Data: 459378
+      - m_Data: 459396
       m_RenameOverlay:
         m_UserAcceptedRename: 0
         m_Name: 
@@ -1233,9 +1239,9 @@ MonoBehaviour:
   m_AudioPlay: 0
   m_DebugDrawModesUseInteractiveLightBakingData: 0
   m_Position:
-    m_Target: {x: 22.001465, y: 0.32590827, z: -7.399637}
+    m_Target: {x: 20.886631, y: 1.7216718, z: -1.941391}
     speed: 2
-    m_Value: {x: 22.001465, y: 0.32590827, z: -7.399637}
+    m_Value: {x: 20.886631, y: 1.7216718, z: -1.941391}
   m_RenderMode: 0
   m_CameraMode:
     drawMode: 0
@@ -1282,9 +1288,9 @@ MonoBehaviour:
     m_gridOpacity: 1
     m_NearestPlaneToHandleMode: 0
   m_Rotation:
-    m_Target: {x: 0.10086137, y: 0.88486516, z: -0.20327117, w: 0.4093286}
+    m_Target: {x: -0.17228596, y: -0.7024263, z: 0.16929014, w: -0.67100346}
     speed: 2
-    m_Value: {x: 0.10075922, y: 0.883969, z: -0.2030653, w: 0.40891406}
+    m_Value: {x: -0.17236829, y: -0.70072216, z: 0.1688636, w: -0.67138875}
   m_Size:
     m_Target: 6.4050846
     speed: 2
@@ -1294,8 +1300,8 @@ MonoBehaviour:
     speed: 2
     m_Value: 0
   m_CameraSettings:
-    m_Speed: 2
-    m_SpeedNormalized: 1
+    m_Speed: 0.9254007
+    m_SpeedNormalized: 0.46000034
     m_SpeedMin: 0.01
     m_SpeedMax: 2
     m_EasingEnabled: 1
@@ -1481,9 +1487,9 @@ MonoBehaviour:
     m_SceneHandles: []
     m_ShowAllHits: 0
     m_SkipHidden: 0
-    m_SearchArea: 1
+    m_SearchArea: 3
     m_Folders:
-    - Assets
+    - Assets/Scenes
     m_Globs: []
     m_ProductIds: 
     m_AnyWithAssetOrigin: 0
@@ -1493,25 +1499,34 @@ MonoBehaviour:
   m_ViewMode: 1
   m_StartGridSize: 81
   m_LastFolders:
-  - Assets
+  - Assets/Scenes
   m_LastFoldersGridSize: 81
   m_LastProjectPath: D:\WorkDiplom\UnityFiles\ProjectSword
   m_LockTracker:
     m_IsLocked: 0
-  m_LastLocalAssetsSearchArea: 1
+  m_LastLocalAssetsSearchArea: 3
   m_FolderTreeState:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs:
-    - m_Data: 144314
+    - m_Data: 460066
     m_LastClickedID:
-      m_Data: 144314
+      m_Data: 460066
     m_ExpandedIDs:
     - m_Data: 0
-    - m_Data: 144314
-    - m_Data: 144316
-    - m_Data: 144318
-    - m_Data: 144320
-    - m_Data: 144322
+    - m_Data: 459732
+    - m_Data: 459734
+    - m_Data: 459736
+    - m_Data: 459738
+    - m_Data: 459740
+    - m_Data: 460800
+    - m_Data: 460802
+    - m_Data: 460820
+    - m_Data: 460854
+    - m_Data: 460884
+    - m_Data: 460886
+    - m_Data: 460892
+    - m_Data: 461140
+    - m_Data: 461144
     - m_Data: 1000000000
     - m_Data: 2147483647
     m_RenameOverlay:
@@ -1547,11 +1562,11 @@ MonoBehaviour:
       m_Data: 0
     m_ExpandedIDs:
     - m_Data: 0
-    - m_Data: 144314
-    - m_Data: 144316
-    - m_Data: 144318
-    - m_Data: 144320
-    - m_Data: 144322
+    - m_Data: 459732
+    - m_Data: 459734
+    - m_Data: 459736
+    - m_Data: 459738
+    - m_Data: 459740
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 

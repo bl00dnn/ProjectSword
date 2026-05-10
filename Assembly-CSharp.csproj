@@ -49,6 +49,7 @@
     <Analyzer Include="C:\Program Files\Unity\Hub\Editor\6000.4.5f1\Editor\Data\Tools\BuildPipeline\Unity.SourceGenerators\Unity.UIToolkit.SourceGenerator.dll" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\Menu Settings\SceneTransitionManager.cs" />
     <Compile Include="Assets\Scripts\SergiusSceneBootstrap.cs" />
     <Compile Include="Assets\Menu Settings\MenuCharacterShowcase.cs" />
     <Compile Include="Assets\Scripts\SergiusAnimationDriver.cs" />
@@ -68,11 +69,11 @@
     <Compile Include="Assets\Multistory Dungeons 2\Scripts\Move.cs" />
     <Compile Include="Assets\Dark_Fantasy\Assets\CharaPref\Script\Character\scPreventClimbing.cs" />
     <Compile Include="Assets\Multistory Dungeons 2\Scripts\FpsCounter.cs" />
+    <Compile Include="Assets\Menu Settings\GamePauseMenuController.cs" />
     <Compile Include="Assets\Scripts\SergiusInput.cs" />
     <Compile Include="Assets\Dark_Fantasy\Assets\CharaPref\Script\Character\footstepSystemEditor.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Assets\Dark_Fantasy\README.txt" />
     <None Include="Assets\Multistory Dungeons 2\Prefabs\FIRST-PERSON\FP ROOMS\Nested Prefabs Info.txt" />
     <None Include="Assets\Multistory Dungeons 2\DunGen Presets\First-Person Rooms\Nested Prefabs Info.txt" />
     <None Include="Assets\Multistory Dungeons 2\Scenes\ReadMe (1-s person demo).txt" />

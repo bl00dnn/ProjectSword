@@ -37,7 +37,7 @@ public static class MainMenuSceneSetup
                 return;
             }
 
-            if (GameObject.Find("MainMenuCanvas") != null)
+            if (GameObject.Find("MainMenuCanvas") != null && GameObject.Find("QuitButton") != null)
             {
                 return;
             }
@@ -226,10 +226,11 @@ public static class MainMenuSceneSetup
         RectTransform root = canvasObject.GetComponent<RectTransform>();
         CreateText("GameTitle", root, "PROJECT SWORD", 52, FontStyle.Bold, new Color(0.92f, 0.84f, 0.68f), new Vector2(1f, 0.5f), new Vector2(1f, 0.5f), new Vector2(-470f, 118f), new Vector2(520f, 90f));
         CreateText("CharacterName", root, "СЕРГИУС", 24, FontStyle.Normal, new Color(0.58f, 0.72f, 0.95f), new Vector2(1f, 0.5f), new Vector2(1f, 0.5f), new Vector2(-470f, 58f), new Vector2(520f, 46f));
-        CreateButton(root, "PlayButton", "ИГРАТЬ", new Vector2(-470f, -58f), new Vector2(420f, 86f));
+        CreateButton(root, "PlayButton", "ИГРАТЬ", new Vector2(-470f, -58f), new Vector2(420f, 86f), false);
+        CreateButton(root, "QuitButton", "ВЫЙТИ", new Vector2(-470f, -164f), new Vector2(420f, 76f), true);
     }
 
-    private static void CreateButton(RectTransform parent, string name, string label, Vector2 anchoredPosition, Vector2 size)
+    private static void CreateButton(RectTransform parent, string name, string label, Vector2 anchoredPosition, Vector2 size, bool quitButton)
     {
         GameObject buttonObject = new GameObject(name);
         buttonObject.transform.SetParent(parent, false);
@@ -257,7 +258,15 @@ public static class MainMenuSceneSetup
         MainMenuController controller = Object.FindAnyObjectByType<MainMenuController>();
         if (controller != null)
         {
-            UnityEventTools.AddPersistentListener(button.onClick, controller.PlayGame);
+            if (quitButton)
+            {
+                UnityEventTools.AddPersistentListener(button.onClick, controller.QuitGame);
+            }
+            else
+            {
+                UnityEventTools.AddPersistentListener(button.onClick, controller.PlayGame);
+            }
+
             EditorUtility.SetDirty(button);
         }
     }

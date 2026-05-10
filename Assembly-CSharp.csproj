@@ -50,6 +50,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\Scripts\SergiusSceneBootstrap.cs" />
+    <Compile Include="Assets\Menu Settings\MenuCharacterShowcase.cs" />
     <Compile Include="Assets\Scripts\SergiusAnimationDriver.cs" />
     <Compile Include="Assets\Multistory Dungeons 2\Scripts\PointAndClickManager.cs" />
     <Compile Include="Assets\Dark_Fantasy\Assets\CharaPref\Script\Other\gizmosCube.cs" />
@@ -63,6 +64,7 @@
     <Compile Include="Assets\Scripts\WitcherLikeCamera.cs" />
     <Compile Include="Assets\Dark_Fantasy\Assets\CharaPref\Script\Character\Character.cs" />
     <Compile Include="Assets\Scripts\PlayerSpawnPoint.cs" />
+    <Compile Include="Assets\Menu Settings\MainMenuController.cs" />
     <Compile Include="Assets\Multistory Dungeons 2\Scripts\Move.cs" />
     <Compile Include="Assets\Dark_Fantasy\Assets\CharaPref\Script\Character\scPreventClimbing.cs" />
     <Compile Include="Assets\Multistory Dungeons 2\Scripts\FpsCounter.cs" />
